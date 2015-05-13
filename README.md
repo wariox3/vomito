@@ -1,2 +1,0 @@
-# vomito
-Interface
