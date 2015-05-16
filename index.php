@@ -10,6 +10,7 @@
         <a href="importarEmpleado.php">Importar empleado</a><br /><br />    
         <a href="importarContrato.php">Importar contrato</a><br /><br />
         <a href="importarCredito.php">Importar credito</a><br /><br />
+        <a href="importarDescuentoFijo.php">Importar descuento fijo</a><br /><br />
         
         
         <h1>Menu consultas</h1>

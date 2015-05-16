@@ -3,6 +3,12 @@
     <head>
         <meta charset="UTF-8">
         <title>Ver pago nomina</title>
+        <style type="text/css">
+            body{
+                font-family: verdana;
+                font-size: 13px;
+            }
+        </style>        
     </head>
     <body>
         <h1>Ver pago nomina</h1>
@@ -40,7 +46,7 @@
                     die("Connection failed: " . $ervidorJG->connect_error);
                 }
 
-                $strSql = "SELECT sql_migracion_pago_nomina.* FROM sql_migracion_pago_nomina WHERE 1 LIMIT 20";
+                $strSql = "SELECT sql_migracion_pago_nomina.* FROM sql_migracion_pago_nomina WHERE 1 LIMIT 30";
                 $arNominas = $servidorJG->query($strSql);
 
                 if ($arNominas->num_rows > 0) {
