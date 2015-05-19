@@ -6,7 +6,7 @@
  * and open the template in the editor.
  */
 
-                $servidorBrasa = new mysqli("181.143.57.90", "jgmysql", "yuij. 487.", "bdbrasa");
+                /*$servidorBrasa = new mysqli("181.143.57.90", "jgmysql", "yuij. 487.", "bdbrasa");
                 if ($servidorBrasa->connect_error) {
                     die("Connection failed: " . $servidorBrasa->connect_error);
                 } 
@@ -14,8 +14,8 @@
                 $servidorJG = new mysqli("181.143.57.90", "jgmysql", "yuij. 487.", "jgefectivo");
                 if ($servidorJG->connect_error) {
                     die("Connection failed: " . $ervidorJG->connect_error);
-                }
-                /*
+                }*/
+                
                 $servidorBrasa = new mysqli("192.168.10.152", "jgmysql", "yuij. 487.", "bdbrasa");
                 if ($servidorBrasa->connect_error) {
                     die("Connection failed: " . $servidorBrasa->connect_error);
@@ -25,5 +25,3 @@
                 if ($servidorJG->connect_error) {
                     die("Connection failed: " . $ervidorJG->connect_error);
                 } 
-                 * 
-                 */               
