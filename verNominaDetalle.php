@@ -37,9 +37,11 @@
                 $strSqlNominaDetalle = "SELECT sql_migracion_pago_nomina_detalle.* FROM sql_migracion_pago_nomina_detalle WHERE codigo = '" . $_GET['codigo'] . "'";
                 $arNominas = $servidorJG->query($strSqlNominaDetalle);
                 $douTotalNeto = 0;
+                $intNumero = 0;
                 if ($arNominas->num_rows > 0) {
                     while ($arNomina = $arNominas->fetch_assoc()) {
                         $douTotalNeto = $douTotalNeto + $arNomina['neto'];
+                        $intNumero++;
                         $strSql = "SELECT denomina.nrohora FROM denomina WHERE consecutivo = " . $arNomina['consecutivo'] . " AND codsala= '01'";                
                         $arDenominas = $servidorJG->query($strSql);
                         $arDenomina = $arDenominas->fetch_assoc();                        
@@ -61,7 +63,7 @@
                 ?>    
                 <?php
                 echo "<tr>";
-                echo "<td></td>";
+                echo "<td>" . number_format($intNumero, 0, ',', '.') . "</td>";
                 echo "<td></td>";
                 echo "<td></td>";
                 echo "<td></td>";
@@ -89,7 +91,7 @@
                 $arPagoAdicionalSubtipo = $arPagoAdicionalSubtipos->fetch_assoc();
                 $arEmpleados = $servidorBrasa->query("SELECT rhu_empleado.* FROM rhu_empleado WHERE numero_identificacion = '" . $arNomina['cedemple'] . "'");
                 $arEmpleado = $arEmpleados->fetch_assoc();                
-                echo "UPDATE rhu_empleado SET horas_laboradas_periodo = " . $arDenomina['nrohora'] . " WHERE codigo_empleado_pk = " . $arEmpleado['codigo_empleado_pk'] . ";<br />";
+                echo "UPDATE rhu_empleado SET horas_laboradas_periodo = " . ($arDenomina['nrohora'] + $arIncapadidad['nrohora']) . " WHERE codigo_empleado_pk = " . $arEmpleado['codigo_empleado_pk'] . ";#" . $arNomina['cedemple'] . "<br />";
             }
             
 
@@ -115,7 +117,7 @@
             <tbody>                
                 <?php
                 //Incapacidades, licencias
-                $strExcluir = " AND codsala <> '41' AND codsala <> '04' AND codsala <> '06' AND codsala <> '75' AND codsala <> '31' AND codsala <> '60' AND codsala <> '18' AND codsala <> '16' AND codsala <> '84' "
+                $strExcluir = " AND codsala <> '96' AND codsala <> '41' AND codsala <> '04' AND codsala <> '06' AND codsala <> '75' AND codsala <> '31' AND codsala <> '60' AND codsala <> '18' AND codsala <> '16' AND codsala <> '84' "
                         . "AND codsala <> '64' AND codsala <> '32' AND codsala <> '26' AND codsala <> '65' AND codsala <> '63' AND codsala <> '25' AND codsala <> '24' AND codsala <> '03' AND codsala <> '86'";
                 $strSql = "SELECT sql_migracion_tiempo_suplementario.* FROM sql_migracion_tiempo_suplementario WHERE codigo = '" . $_GET['codigo'] . "'" . $strExcluir . " ORDER BY abreviatura, desala, nombre_corto";
                 $arNominas = $servidorJG->query($strSql);
@@ -157,7 +159,7 @@
             <tbody>                
                 <?php
                 //Bonos
-                $strExcluir = " AND codsala <> '41' AND codsala <> '13' AND codsala <> '04' AND codsala <> '06' AND codsala <> '94' AND codsala <> '31' AND codsala <> '92' AND codsala <> '75' AND codsala <> '60' AND codsala <> '16' AND codsala <> '18' "
+                $strExcluir = " AND codsala <> '96' AND codsala <> '41' AND codsala <> '13' AND codsala <> '04' AND codsala <> '06' AND codsala <> '94' AND codsala <> '31' AND codsala <> '92' AND codsala <> '75' AND codsala <> '60' AND codsala <> '16' AND codsala <> '18' "
                         . "AND codsala <> '84' AND codsala <> '32' AND codsala <> '95' AND codsala <> '12' AND codsala <> '26' AND codsala <> '65' AND codsala <> '63' AND codsala <> '25' AND codsala <> '24' AND codsala <> '03' AND codsala <> '86'";
                 $strSql = "SELECT sql_migracion_tiempo_suplementario.* FROM sql_migracion_tiempo_suplementario WHERE codigo = '" . $_GET['codigo'] . "'" . $strExcluir . " ORDER BY abreviatura, desala, nombre_corto";
                 $arNominas = $servidorJG->query($strSql);
@@ -201,7 +203,7 @@
             <tbody>                
                 <?php
                 //Tiempo suplementario
-                $strExcluir = " AND codsala <> '41' AND codsala <> '13' AND codsala <> '95' AND codsala <> '12' AND codsala <> '94' AND codsala <> '31' AND codsala <> '92' AND codsala <> '75' AND codsala <> '60' AND codsala <> '84' AND codsala <> '64' "
+                $strExcluir = " AND codsala <> '96' AND codsala <> '41' AND codsala <> '13' AND codsala <> '95' AND codsala <> '12' AND codsala <> '94' AND codsala <> '31' AND codsala <> '92' AND codsala <> '75' AND codsala <> '60' AND codsala <> '84' AND codsala <> '64' "
                         . "AND codsala <> '32' AND codsala <> '26' AND codsala <> '65' AND codsala <> '63' AND codsala <> '25' AND codsala <> '24' AND codsala <> '86'";
                 $strSql = "SELECT sql_migracion_tiempo_suplementario.* FROM sql_migracion_tiempo_suplementario WHERE codigo = '" . $_GET['codigo'] . "'" . $strExcluir . " ORDER BY abreviatura, desala, nombre_corto";
                 $arNominas = $servidorJG->query($strSql);
@@ -326,7 +328,7 @@
             </thead>
             <tbody>                
                 <?php
-                $strExcluir = " AND codsala <> '41' AND codsala <> '13' AND codsala <> '63' AND codsala <> '04' AND codsala <> '06' AND codsala <> '86' AND codsala <> '65' AND codsala <> '75' AND codsala <> '24' AND codsala <> '31' AND codsala <> '94' "
+                $strExcluir = " AND codsala <> '32' AND codsala <> '96' AND codsala <> '25' AND codsala <> '41' AND codsala <> '13' AND codsala <> '63' AND codsala <> '04' AND codsala <> '06' AND codsala <> '86' AND codsala <> '65' AND codsala <> '75' AND codsala <> '24' AND codsala <> '31' AND codsala <> '94' "
                         . "AND codsala <> '92' AND codsala <> '03' AND codsala <> '16' AND codsala <> '18' AND codsala <> '12' AND codsala <> '64' AND codsala <> '95'";
                 $strSql = "SELECT sql_migracion_tiempo_suplementario.* FROM sql_migracion_tiempo_suplementario WHERE codigo = '" . $_GET['codigo'] . "'" . $strExcluir . " ORDER BY abreviatura, desala, nombre_corto";
                 $arNominas = $servidorJG->query($strSql);
