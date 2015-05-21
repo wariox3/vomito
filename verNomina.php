@@ -40,11 +40,10 @@
 
                 $strSql = "SELECT sql_migracion_pago_nomina.* FROM sql_migracion_pago_nomina WHERE 1 LIMIT 30";
                 $arNominas = $servidorJG->query($strSql);
-
                 if ($arNominas->num_rows > 0) {
                     while($arNomina = $arNominas->fetch_assoc()) {
                         echo "<tr>";
-                        echo "<td><a href='verNominaDetalle.php?codigo=" . $arNomina['codigo'] . "'>" . $arNomina['codigo'] . "</a></td>";
+                        echo "<td><a href='verNominaDetalle2.php?codigo=" . $arNomina['codigo'] . "'>" . $arNomina['codigo'] . "</a></td>";
                         echo "<td>" . $arNomina['desde'] . "</td>";
                         echo "<td>" . $arNomina['hasta'] . "</td>";
                         echo "<td>" . $arNomina['zona'] . "</td>";
