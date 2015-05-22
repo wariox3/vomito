@@ -8,21 +8,20 @@
         <h1>Importar contrato</h1>
         <?php
         set_time_limit(0);
-        include("conexion.php");
+        include("conexion.php");               
         
-        $strSql = "SELECT sql_migracion_contratos.* FROM sql_migracion_contratos WHERE exportado_migracion = 0";
+        $strSql = "SELECT sql_migracion_contratos.* FROM sql_migracion_contratos WHERE exportado_migracion = 0 limit 10";
         $arContatos = $servidorJG->query($strSql);
 
         if ($arContatos->num_rows > 0) {
             while($arContrato = $arContatos->fetch_assoc()) {
-                /*$arEmpleados = $servidorBrasa->query("SELECT codigo_empleado_pk FROM rhu_empleado WHERE numero_identificacion = '" . $arContrato['cedemple'] . "'");
-                $arEmpleado = $arEmpleados->fetch_assoc();
-                $codigoEmpleado = $arEmpleado['codigo_empleado_pk'];
-                
+                $arEmpleados = $servidorBrasa->query("SELECT codigo_empleado_pk FROM rhu_empleado WHERE numero_identificacion = '" . $arContrato['cedemple'] . "'");
+                $arEmpleado = $arEmpleados->fetch_assoc();                
                 $strInsertar = "INSERT INTO rhu_contrato "
-                    . " (codigo_empleado_fk, fecha, fecha_desde, fecha_hasta, numero, vr_salario, estado_activo, comentarios, codigo_tipo_tiempo_fk) "                        
-                    . "  VALUES (" . $codigoEmpleado . ", '2015-05-08', '" . $arContrato['fechainic'] . "', '" . $arContrato['fechater'] . "', '" . $arContrato['contrato'] . "', " . $arContrato['salario'] . ", " . $arContrato['estado_activo'] . ", '" . $arContrato['nota'] . "', " . $arContrato['codigo_tipo_tiempo_fk'] . ")";
-                if ($servidorBrasa->query($strInsertar) === TRUE) {
+                    . " (codigo_empleado_fk, fecha, fecha_desde, fecha_hasta, numero, vr_salario, estado_activo, comentarios, codigo_tipo_tiempo_fk, codigo_centro_costo_fk) "                        
+                    . "  VALUES (" . $arEmpleado['codigo_empleado_pk'] . ", '2015-05-08', '" . $arContrato['fechainic'] . "', '" . $arContrato['fechater'] . "', '" . $arContrato['contrato'] . "', " . $arContrato['salario'] . ", " . $arContrato['estado_activo'] . ", '" . $arContrato['nota'] . "', " . $arContrato['codigo_tipo_tiempo_fk'] . ", " . $arContrato['codigo_interface_migracion'] . ")";
+                
+                /*if ($servidorBrasa->query($strInsertar) === TRUE) {
                     $strActMigracion = "UPDATE contrato SET exportado_migracion = 1 WHERE contrato.contrato = '" . $arContrato['contrato'] . "'";
                     $servidorJG->query($strActMigracion);
                 } else {
@@ -54,43 +53,7 @@
         set_time_limit(60);
         ?>
                 <br /><br />
-                <a href="index.php">Volver</a> <a href="importarContratoProceso.php">Importar</a>
-        
-
-<table border="1">
-    <caption>Contratos nuevos</caption>
-    <thead>
-        <tr>
-            <th>Contrato</th>
-            <th>Identificacion</th>
-            <th>Empleado</th> 
-            <th>Desde</th>
-            <th>Hasta</th> 
-            <th>Salario</th>
-        </tr>
-    </thead>
-    <tbody>                
-        <?php
-        $strSql = "SELECT sql_migracion_contratos.* FROM sql_migracion_contratos WHERE exportado_migracion = 0";
-        $arContatos = $servidorJG->query($strSql);        
-        if ($arContatos->num_rows > 0) {
-            while ($arContato = $arContatos->fetch_assoc()) {
-                echo "<tr>";
-                echo "<td>" . $arContato['contrato'] . "</td>";
-                echo "<td>" . $arContato['cedemple'] . "</td>";
-                echo "<td></td>";
-                echo "<td>" . $arContato['fechainic'] . "</td>";
-                echo "<td>" . $arContato['fechater'] . "</td>";
-                echo "<td style='text-align: right'>" . number_format($arContato['salario'], 0, ',', '.') . "</td>";
-                echo "</tr>";
-            }
-        } else {
-            echo "0 results";
-        }
-        $arContatos->close();
-        ?>                   
-    </tbody>
-</table>   <br /><br /><br />        
+        <a href="index.php">Volver</a>                
     </body>
 </html>
 
