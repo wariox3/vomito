@@ -58,7 +58,7 @@
         echo "<td></td>";
         echo "<td style='text-align: right'></td>";
         echo "<td style='text-align: right'></td>";
-        echo "<td style='text-align: right'></td>";
+        echo "<td style='text-align: right'>" . number_format($douTotalNeto, 0, ',', '.') . "</td>";
         echo "<td></td>";   
         echo "<td>" . $intHorasAdicionales . "</td>";                           
         echo "</tr>";
