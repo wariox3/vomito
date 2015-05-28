@@ -5,6 +5,7 @@
             <th>codretiro</th>   
             <th>Retiro</th>
             <th>Nombre</th>
+            <th>Cedula</th>
         </tr>
     </thead>
     <tbody>                
@@ -17,6 +18,7 @@
                 echo "<td>" . $arRetiro['codretiro'] . "</td>";
                 echo "<td>" . $arRetiro['fechare'] . "</td>";
                 echo "<td>" . $arRetiro['nombres'] . "</td>";
+                echo "<td>" . $arRetiro['cedemple'] . "</td>";
                 echo "</tr>";
 
             }
