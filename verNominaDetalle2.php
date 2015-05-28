@@ -20,6 +20,7 @@
         include("verNominaDetallesNovedades.php");
         include("verNominaDetallesAdicional.php");
         include("verNominaDetallesSuplementario.php");
+        include("verNominaDetallesRetiros.php");
         echo "#SQL Adicionales<br />" . $strAdicionales;
         echo "<br /><br />";
         echo "#SQL Suplementario<br />" . $strSuplementario;

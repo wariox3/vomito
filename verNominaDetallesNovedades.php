@@ -36,8 +36,8 @@
                 $arEmpleados = $servidorBrasa->query("SELECT rhu_empleado.* FROM rhu_empleado WHERE numero_identificacion = '" . $arDetalle['cedemple'] . "'");
                 $arEmpleado = $arEmpleados->fetch_assoc();                    
                 if($arDetalle['abreviatura'] == '0INCA') {
-                    $strNovedadesIncapacidades = $strNovedadesIncapacidades . "INSERT INTO rhu_incapacidad (codigo_empleado_fk, cantidad, cantidad_pendiente, codigo_centro_costo_fk, codigo_pago_adicional_subtipo_fk) "
-                    . "VALUES (" . $arEmpleado['codigo_empleado_pk'] . ", " . $arDetalle['nrohora'] . ", " . $arDetalle['nrohora'] . " , " . $arEmpleado['codigo_centro_costo_fk'] . ", " . $arDetalle['subtipo'] . ");" . "<br />";                                                    
+                    $strNovedadesIncapacidades = $strNovedadesIncapacidades . "INSERT INTO rhu_incapacidad (codigo_empleado_fk, cantidad, cantidad_pendiente, codigo_centro_costo_fk, codigo_pago_adicional_subtipo_fk, codigo_incapacidad_diagnostico_fk) "
+                    . "VALUES (" . $arEmpleado['codigo_empleado_pk'] . ", " . $arDetalle['nrohora'] . ", " . $arDetalle['nrohora'] . " , " . $arEmpleado['codigo_centro_costo_fk'] . ", " . $arDetalle['subtipo'] . ", 12630);" . "<br />";                                                    
                 }
                 if($arDetalle['abreviatura'] == '0LICE') {                
                     $strNovedadesLicencias = $strNovedadesLicencias . "INSERT INTO rhu_licencia (codigo_empleado_fk, cantidad, cantidad_pendiente, codigo_centro_costo_fk, codigo_pago_adicional_subtipo_fk, afecta_transporte) "
