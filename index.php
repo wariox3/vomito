@@ -20,6 +20,7 @@
         <a href="vaciarDatos.php">Vaciar datos</a><br /><br />
         <a href="empleadosCentroCostos.php">Proceso empleados centro costos</a><br /><br />
         <a href="actualizarSucursal.php">Actualizar sucursal</a><br /><br />
+        <a href="actualizarValorHora.php">Actualizar valor hora</a><br /><br />
 
         <h1>Importar archivo</h1>
         <a href="importarArchivo.php">Importar archivo</a><br /><br />        
