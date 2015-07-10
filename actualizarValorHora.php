@@ -18,11 +18,11 @@
                 //echo "hola mundo";
                 $strActualizar = "UPDATE decentro SET vlrhora = " . $arDecentro['vlrhora'] . " WHERE codcentro = '" . $arDecentro['codcentro'] . "' AND (codsala='94' OR codsala='95')";                    
                 //echo $strActualizar;
-                if ($servidorJG->query($strActualizar) === TRUE) {
+                /*if ($servidorJG->query($strActualizar) === TRUE) {
                     echo "Se actualizo centro " .$arDecentro['codcentro'] . "<br />";
                 } else {
                     echo "Error: " .$servidorJG->error . "<br />";
-                }                
+                } */               
             }            
         } else {
             echo "0 results <br />";
