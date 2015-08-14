@@ -9,12 +9,11 @@ if ($_FILES[csv][size] > 0) {
      
     do { 
         if ($data[0]) { 
-            $strSql = "UPDATE empleado SET codigo_caja_pk = " .addslashes($data[1]). " 
-                WHERE cedemple = '".addslashes($data[0])."'"; 
+            $strSql = "INSERT INTO gen_ciudad (codigo_departamento_fk, nombre, codigo_interface) VALUES (" .addslashes($data[2]). ", '". utf8_decode(addslashes($data[1])) . "', '".addslashes($data[0])."')"; 
             //echo $strSql . "<br />";
-            /*if ($servidorJG->query($strSql) != TRUE) {
-                echo "Error: " . addslashes($data[0]) . " Descripcion: " .$servidorJG->error . "<br />";
-            }*/
+            if ($servidorBrasa->query($strSql) != TRUE) {
+                echo "Error: " . addslashes($data[0]) . " Descripcion: " .$servidorBrasa->error . "<br />";
+            }
         } 
         $i++;
     } while ($data = fgetcsv($handle,1000,",","'")); 

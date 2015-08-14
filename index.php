@@ -21,8 +21,12 @@
         <a href="empleadosCentroCostos.php">Proceso empleados centro costos</a><br /><br />
         <a href="actualizarSucursal.php">Actualizar sucursal</a><br /><br />
         <a href="actualizarValorHora.php">Actualizar valor hora</a><br /><br />
+        <a href="actualizarIbcLicencias.php">Actualizar ibc licencias</a><br /><br />
+        <a href="actualizarIbcSuplementario.php">Actualizar ibc tiempo suplementario</a><br /><br />
 
         <h1>Importar archivo</h1>
         <a href="importarArchivo.php">Importar archivo</a><br /><br />        
+        <a href="validarArchivoPila.php">Validar archivo pila</a><br /><br />        
+        <a href="importarArchivoBrasa.php">Importar archivo brasa</a><br /><br />        
     </body>
 </html>

@@ -5,23 +5,17 @@ if ($_FILES[csv][size] > 0) {
     include("conexion.php");     
     $i = 0;
     $file = $_FILES[csv][tmp_name]; 
-    $handle = fopen($file,"r"); 
-     
-    do { 
-        if ($data[0]) { 
-            $strSql = "UPDATE empleado SET codigo_caja_pk = " .addslashes($data[1]). " 
-                WHERE cedemple = '".addslashes($data[0])."'"; 
-            //echo $strSql . "<br />";
-            /*if ($servidorJG->query($strSql) != TRUE) {
-                echo "Error: " . addslashes($data[0]) . " Descripcion: " .$servidorJG->error . "<br />";
-            }*/
-        } 
-        $i++;
-    } while ($data = fgetcsv($handle,1000,",","'")); 
-
-    echo "Se procesaron " . $i . " registros";    
+    //$handle = fopen($file,"r"); 
+    $fp = fopen($file, "r");
+    while(!feof($fp)) {
+        $linea = fgets($fp);
+        $strLinea = strval($linea);
+        echo strlen($strLinea) . $linea . "<br />";
+    }
+    fclose($fp);
+    
     //redirect 
-    header('Location: importarArchivo.php?success=1'); die; 
+    header('Location: validarArchivoPila.php?success=1'); die; 
 
 } 
 
