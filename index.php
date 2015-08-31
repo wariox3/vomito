@@ -28,5 +28,8 @@
         <a href="importarArchivo.php">Importar archivo</a><br /><br />        
         <a href="validarArchivoPila.php">Validar archivo pila</a><br /><br />        
         <a href="importarArchivoBrasa.php">Importar archivo brasa</a><br /><br />        
+        
+        <h1>Generar</h1>
+        <a href="generarEmpleados.php">Generar empleados</a><br /><br />        
     </body>
 </html>
