@@ -21,7 +21,7 @@
                 $codigoEmpleado = $arEmpleado['codigo_empleado_pk'];
                 $strSql = "insert into `rhu_contrato` "
                         . "(`codigo_empleado_fk`, `fecha`, `fecha_desde`, `fecha_hasta`, `numero`, `vr_salario`, `estado_activo`, `comentarios`, `indefinido`, `codigo_tipo_tiempo_fk`, `codigo_centro_costo_fk`, `codigo_contrato_tipo_fk`, `codigo_clasificacion_riesgo_fk`, `cargo_descripcion`, `codigo_cargo_fk`, `codigo_tipo_pension_fk`, `fecha_ultimo_pago_cesantias`, `fecha_ultimo_pago_vacaciones`, `fecha_ultimo_pago_primas`, `fecha_ultimo_pago`, `estado_liquidado`, `factor`,`factor_horas_dia`, `vr_salario_pago`) "
-                        . "values(" . $codigoEmpleado . ",'2015-01-01','2015-01-01','2015-08-21','R123','900000','1',NULL,'1','1','612','1','1','212312','2','1','2015-07-03','2015-07-03','2015-07-03','2015-11-30','0','0','8', '644350');        ";
+                        . "values(" . $codigoEmpleado . ",'2015-01-01','2015-01-01','2015-08-21','R123','900000','1',NULL,'1','1','612','1','1','212312','2','1','2015-07-03','2015-07-03','2015-07-03','2014-12-30','0','0','8', '644350');        ";
                   
                 if ($servidorBrasa->query($strSql) === TRUE) {
                     echo "Insertado " . $i . "<br />"; 

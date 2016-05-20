@@ -31,5 +31,9 @@
         
         <h1>Generar</h1>
         <a href="generarEmpleados.php">Generar empleados</a><br /><br />        
+        
+        <h1>Procesos</h1>
+        <a href="proceso.php">Proceso</a><br /><br />   
+        <img src="/almacenamiento/imagenes/empleados/IMG_6583.JPG">
     </body>
 </html>
