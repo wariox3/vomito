@@ -2,38 +2,33 @@
 <html>
     <head>
         <meta charset="UTF-8">
-        <title>Menu</title>
+        <title>Vomito</title>
     </head>
     <body>
         <h1>Menu acciones</h1>
-        <a href="importarCentroCosto.php">Importar centro costo</a><br /><br />
-        <a href="importarEmpleado.php">Importar empleado</a><br /><br />    
-        <a href="importarContrato.php">Importar contrato</a><br /><br />
-        <a href="importarCredito.php">Importar credito</a><br /><br />
-        <a href="importarDescuentoFijo.php">Importar descuento fijo</a><br /><br />
+        <a href="importarCentroCosto.php1">Importar centro costo</a><br /><br />
+        <a href="importarEmpleado.php1">Importar empleado</a><br /><br />    
+        <a href="importarContrato.php1">Importar contrato</a><br /><br />
+        <a href="importarCredito.php1">Importar credito</a><br /><br />
+        <a href="importarDescuentoFijo.php1">Importar descuento fijo</a><br /><br />
         
         
         <h1>Menu consultas</h1>
-        <a href="verNomina.php">Ver nominas</a><br /><br />
+        <a href="verNomina.php1">Ver nominas</a><br /><br />
         
         <h1>Actualizaciones</h1>
-        <a href="vaciarDatos.php">Vaciar datos</a><br /><br />
-        <a href="empleadosCentroCostos.php">Proceso empleados centro costos</a><br /><br />
-        <a href="actualizarSucursal.php">Actualizar sucursal</a><br /><br />
-        <a href="actualizarValorHora.php">Actualizar valor hora</a><br /><br />
-        <a href="actualizarIbcLicencias.php">Actualizar ibc licencias</a><br /><br />
-        <a href="actualizarIbcSuplementario.php">Actualizar ibc tiempo suplementario</a><br /><br />
+        <a href="actualizarEmpleadoContrato.php">Actualizar empleados con datos de contratos</a><br /><br />
 
         <h1>Importar archivo</h1>
-        <a href="importarArchivo.php">Importar archivo</a><br /><br />        
-        <a href="validarArchivoPila.php">Validar archivo pila</a><br /><br />        
-        <a href="importarArchivoBrasa.php">Importar archivo brasa</a><br /><br />        
+        <a href="importarArchivo.php1">Importar archivo</a><br /><br />        
+        <a href="validarArchivoPila.php1">Validar archivo pila</a><br /><br />        
+        <a href="importarArchivoBrasa.php1">Importar archivo brasa</a><br /><br />        
         
         <h1>Generar</h1>
-        <a href="generarEmpleados.php">Generar empleados</a><br /><br />        
+        <a href="generarEmpleados.php1">Generar empleados</a><br /><br />        
         
         <h1>Procesos</h1>
-        <a href="proceso.php">Proceso</a><br /><br />   
+        <a href="proceso.php1">Proceso</a><br /><br />   
         <img src="/almacenamiento/imagenes/empleados/IMG_6583.JPG">
     </body>
 </html>
