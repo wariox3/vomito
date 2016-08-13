@@ -28,7 +28,7 @@
         <a href="generarEmpleados.php1">Generar empleados</a><br /><br />        
         
         <h1>Procesos</h1>
-        <a href="proceso.php1">Proceso</a><br /><br />   
+        <a href="proceso.php">Proceso</a><br /><br />   
         <img src="/almacenamiento/imagenes/empleados/IMG_6583.JPG">
     </body>
 </html>
