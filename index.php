@@ -29,6 +29,6 @@
         
         <h1>Procesos</h1>
         <a href="proceso.php">Proceso</a><br /><br />   
-        <img src="/almacenamiento/imagenes/empleados/IMG_6583.JPG">
+        <a href="procesoCodigoRecurso.php">Proceso codigo recurso</a><br /><br /> 
     </body>
 </html>

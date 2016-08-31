@@ -8,8 +8,20 @@
         <h1>Generar empleados</h1>
         <?php
         set_time_limit(0);
-        include("conexion.php");   
+        include("conexion.php");
+            
+        
+        
         $strSql = "SELECT tur_recurso.* FROM tur_recurso";        
+        $arRecursos = $servidorSeracis->query($strSql);
+        if ($arRecursos->num_rows > 0) {
+            while($arRecurso = $arRecursos->fetch_assoc()) { 
+                echo $arEmpleado['codigo_recurso_pk'] . "<br />";                                              
+            }            
+        } else {
+            echo "0 results <br />";
+        }        
+        /*$strSql = "SELECT tur_recurso.* FROM tur_recurso";        
         $arRecursos = $servidorSeracis->query($strSql);
         if ($arRecursos->num_rows > 0) {
             while($arRecurso = $arRecursos->fetch_assoc()) {                                  
@@ -39,27 +51,11 @@
                     } else {
                         echo "Error: " .$servidorSeracis->error . $strActualizar . "<br />";
                     }  
-                }
-                
-                /*if($arPagoDetalle['compone_salario'] == 1) {
-                    echo "Salario";
-                }
-                if($arPagoDetalle['por_porcentaje_tiempo_extra'] > 0) {
-                    $ibcExtra = $arPagoDetalle['vr_pago'];
-                    //echo $arPagoDetalle['codigo_pago_detalle_pk'] . "<br/>";
-                    $strActualizar = "UPDATE rhu_pago_detalle set vr_ingreso_base_cotizacion_adicional = " . $ibcExtra . " WHERE codigo_pago_detalle_pk = " . $arPagoDetalle['codigo_pago_detalle_pk'];                                                            
-                    if ($servidorSeracis->query($strActualizar) === TRUE) {
-                        echo $strActualizar . "<br/>";
-                    } else {
-                        echo "Error: " .$servidorSeracis->error . $strActualizar . "<br />";
-                    }                        
-                } 
-                 * 
-                 */                                       
+                }                                                      
             }            
         } else {
             echo "0 results <br />";
-        }            
+        }*/            
         
         /*$strSql = "SELECT rhu_pago_detalle.*, rhu_pago_concepto.compone_salario, rhu_pago_concepto.por_porcentaje_tiempo_extra FROM rhu_pago_detalle LEFT JOIN rhu_pago_concepto ON rhu_pago_detalle.codigo_pago_concepto_fk = rhu_pago_concepto.codigo_pago_concepto_pk";        
         $arPagosDetalle = $servidorSeracis->query($strSql);
@@ -101,7 +97,9 @@
         } else {
             echo "0 results <br />";
         }*/       
-        set_time_limit(60);
+
+
+set_time_limit(60);
         ?>
                 <br /><br />
         <a href="index.php">Volver</a>                
