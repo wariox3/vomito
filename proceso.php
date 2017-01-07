@@ -8,10 +8,7 @@
         <h1>Generar empleados</h1>
         <?php
         set_time_limit(0);
-        include("conexion.php");
-            
-        
-        
+        include("conexion.php");                            
         $strSql = "SELECT tur_recurso.* FROM tur_recurso";        
         $arRecursos = $servidorSeracis->query($strSql);
         if ($arRecursos->num_rows > 0) {
